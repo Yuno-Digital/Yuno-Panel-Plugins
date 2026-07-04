@@ -9,11 +9,6 @@ use Yuno\Plugins\DiscordBridge\Http\InteractionsController;
 
 class DiscordBridgeServiceProvider extends ServiceProvider
 {
-    public function register(): void
-    {
-        $this->mergeConfigFrom(__DIR__.'/../config/discord-bridge.php', 'discord-bridge');
-    }
-
     public function boot(): void
     {
         // Discord posts here for every slash command (no CSRF/session — the

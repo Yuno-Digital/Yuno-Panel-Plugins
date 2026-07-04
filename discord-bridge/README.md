@@ -20,18 +20,12 @@ run the commands.
 1. Create an application at <https://discord.com/developers/applications>, add a
    bot, and copy the **Public Key**, **Application ID** and **Bot Token**.
 
-2. Add to the panel's `.env`:
+2. In the panel: enable the plugin under **Admin → Plugins**, then open its
+   **Settings** and fill in Public Key, Application ID, Bot Token and the allowed
+   Discord user IDs. (No `.env` editing needed — values are stored in the panel.
+   Matching env vars like `DISCORD_PUBLIC_KEY` still work as a fallback.)
 
-   ```dotenv
-   DISCORD_PUBLIC_KEY=...
-   DISCORD_APP_ID=...
-   DISCORD_BOT_TOKEN=...
-   DISCORD_ADMIN_IDS=<your discord user id>,<another>
-   # optional, for instant command updates while testing:
-   DISCORD_GUILD_ID=<server id>
-   ```
-
-3. Enable the plugin under **Admin → Plugins**, then register the commands:
+3. Register the slash commands:
 
    ```bash
    php artisan discord:register

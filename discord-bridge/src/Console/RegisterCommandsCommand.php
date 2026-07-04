@@ -4,6 +4,7 @@ namespace Yuno\Plugins\DiscordBridge\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
+use Yuno\Plugins\DiscordBridge\Support\Config;
 
 class RegisterCommandsCommand extends Command
 {
@@ -13,9 +14,9 @@ class RegisterCommandsCommand extends Command
 
     public function handle(): int
     {
-        $appId = config('discord-bridge.app_id');
-        $token = config('discord-bridge.bot_token');
-        $guild = config('discord-bridge.guild_id');
+        $appId = Config::get('app_id');
+        $token = Config::get('bot_token');
+        $guild = Config::get('guild_id');
 
         if (! $appId || ! $token) {
             $this->error('Set DISCORD_APP_ID and DISCORD_BOT_TOKEN first.');

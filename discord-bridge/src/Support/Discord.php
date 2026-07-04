@@ -16,7 +16,7 @@ class Discord
     {
         $signature = $request->header('X-Signature-Ed25519');
         $timestamp = $request->header('X-Signature-Timestamp');
-        $publicKey = (string) config('discord-bridge.public_key');
+        $publicKey = (string) Config::get('public_key');
 
         if (! $signature || ! $timestamp || ! $publicKey) {
             return false;
@@ -38,9 +38,7 @@ class Discord
      */
     public static function authorized(?string $userId): bool
     {
-        $allowed = (array) config('discord-bridge.admin_ids', []);
-
-        return $userId !== null && in_array($userId, $allowed, true);
+        return $userId !== null && in_array($userId, Config::adminIds(), true);
     }
 
     /**
@@ -48,7 +46,7 @@ class Discord
      */
     public static function followUp(string $interactionToken, string $content): void
     {
-        $appId = config('discord-bridge.app_id');
+        $appId = Config::get('app_id');
 
         Http::patch(
             "https://discord.com/api/v10/webhooks/{$appId}/{$interactionToken}/messages/@original",
