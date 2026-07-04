@@ -1,0 +1,9 @@
+{
+  "id": "hello-world",
+  "name": "Hello World",
+  "version": "1.0.0",
+  "description": "Example plugin that adds a /plugin/hello route.",
+  "author": "Yuno Digital",
+  "namespace": "Yuno\\Plugins\\HelloWorld",
+  "provider": "Yuno\\Plugins\\HelloWorld\\HelloWorldServiceProvider"
+}
