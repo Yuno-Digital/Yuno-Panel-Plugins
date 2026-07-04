@@ -44,3 +44,6 @@ plugin can add routes, views, migrations, config, etc.
 
 - **hello-world** — registers `GET /plugin/hello` returning a JSON greeting; the
   smallest possible example.
+- **discord-bridge** — control servers from Discord with slash commands
+  (`/servers`, `/status`, `/power`, `/say`) via HTTP interactions. See
+  [discord-bridge/README.md](discord-bridge/README.md).

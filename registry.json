@@ -6,6 +6,13 @@
       "version": "1.0.0",
       "description": "Example plugin that adds a /plugin/hello route.",
       "author": "Yuno Digital"
+    },
+    {
+      "id": "discord-bridge",
+      "name": "Discord Bot Bridge",
+      "version": "1.0.0",
+      "description": "Control servers from Discord via slash commands (/servers, /status, /power, /say).",
+      "author": "Yuno Digital"
     }
   ]
 }

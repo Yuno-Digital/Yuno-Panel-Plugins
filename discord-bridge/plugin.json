@@ -1,0 +1,9 @@
+{
+  "id": "discord-bridge",
+  "name": "Discord Bot Bridge",
+  "version": "1.0.0",
+  "description": "Control servers from Discord via slash commands (/servers, /status, /power, /say) over HTTP interactions.",
+  "author": "Yuno Digital",
+  "namespace": "Yuno\\Plugins\\DiscordBridge",
+  "provider": "Yuno\\Plugins\\DiscordBridge\\DiscordBridgeServiceProvider"
+}
