@@ -1,16 +1,47 @@
 {
   "id": "discord-bridge",
   "name": "Discord Bot Bridge",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Control servers from Discord via slash commands (/servers, /status, /power, /say) over HTTP interactions.",
   "author": "Yuno Digital",
   "namespace": "Yuno\\Plugins\\DiscordBridge",
   "provider": "Yuno\\Plugins\\DiscordBridge\\DiscordBridgeServiceProvider",
+  "info": [
+    {
+      "label": "Interactions Endpoint URL",
+      "value": "{url}/plugin/discord/interactions",
+      "description": "Paste this into the Discord Developer Portal → your app → General Information → Interactions Endpoint URL, then Save (fill in the Public Key below first)."
+    }
+  ],
   "settings": [
-    { "key": "public_key", "label": "Discord Public Key", "type": "text", "description": "Developer Portal → your application → General Information." },
-    { "key": "app_id", "label": "Application ID", "type": "text" },
-    { "key": "bot_token", "label": "Bot Token", "type": "password", "description": "Used to register the slash commands." },
-    { "key": "admin_ids", "label": "Allowed Discord user IDs", "type": "text", "description": "Comma-separated Discord user IDs who may run the commands." },
-    { "key": "guild_id", "label": "Guild ID (optional)", "type": "text", "description": "Register commands to one server for instant updates while testing." }
+    {
+      "key": "public_key",
+      "label": "Discord Public Key",
+      "type": "text",
+      "description": "Developer Portal → your application → General Information."
+    },
+    {
+      "key": "app_id",
+      "label": "Application ID",
+      "type": "text"
+    },
+    {
+      "key": "bot_token",
+      "label": "Bot Token",
+      "type": "password",
+      "description": "Used to register the slash commands."
+    },
+    {
+      "key": "admin_ids",
+      "label": "Allowed Discord user IDs",
+      "type": "text",
+      "description": "Comma-separated Discord user IDs who may run the commands."
+    },
+    {
+      "key": "guild_id",
+      "label": "Guild ID (optional)",
+      "type": "text",
+      "description": "Register commands to one server for instant updates while testing."
+    }
   ]
 }
