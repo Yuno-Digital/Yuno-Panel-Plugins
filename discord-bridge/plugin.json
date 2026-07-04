@@ -1,16 +1,21 @@
 {
   "id": "discord-bridge",
   "name": "Discord Bot Bridge",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Control servers from Discord via slash commands (/servers, /status, /power, /say) over HTTP interactions.",
   "author": "Yuno Digital",
   "namespace": "Yuno\\Plugins\\DiscordBridge",
   "provider": "Yuno\\Plugins\\DiscordBridge\\DiscordBridgeServiceProvider",
   "info": [
     {
-      "label": "Interactions Endpoint URL",
+      "label": "Step 1 — Interactions Endpoint URL",
       "value": "{url}/plugin/discord/interactions",
-      "description": "Paste this into the Discord Developer Portal → your app → General Information → Interactions Endpoint URL, then Save (fill in the Public Key below first)."
+      "description": "Fill in the Public Key, Application ID and Bot Token below and Save. Then paste this URL into Discord Developer Portal → your app → General Information → Interactions Endpoint URL and Save there — Discord sends a signed ping to verify it, so the Public Key must match exactly."
+    },
+    {
+      "label": "Step 2 — Register the slash commands",
+      "value": "sudo -u www-data php artisan discord:register",
+      "description": "Run this once on the panel server after saving the settings. Set a Guild ID below and the commands appear instantly — without it they register globally and can take up to an hour to show up in Discord. Re-run it whenever you change the Guild ID or the commands."
     }
   ],
   "settings": [
@@ -18,30 +23,31 @@
       "key": "public_key",
       "label": "Discord Public Key",
       "type": "text",
-      "description": "Developer Portal → your application → General Information."
+      "description": "Developer Portal → your application → General Information. Must match, or Discord can't verify the endpoint."
     },
     {
       "key": "app_id",
       "label": "Application ID",
-      "type": "text"
+      "type": "text",
+      "description": "Developer Portal → General Information → Application ID."
     },
     {
       "key": "bot_token",
       "label": "Bot Token",
       "type": "password",
-      "description": "Used to register the slash commands."
+      "description": "Developer Portal → Bot → Reset Token. Used to register the slash commands."
     },
     {
       "key": "admin_ids",
       "label": "Allowed Discord user IDs",
       "type": "text",
-      "description": "Comma-separated Discord user IDs who may run the commands."
+      "description": "Comma-separated Discord user IDs who may run the commands. Enable Developer Mode in Discord, then right-click a user → Copy User ID."
     },
     {
       "key": "guild_id",
-      "label": "Guild ID (optional)",
+      "label": "Guild ID (recommended)",
       "type": "text",
-      "description": "Register commands to one server for instant updates while testing."
+      "description": "Your Discord server ID (right-click the server → Copy Server ID). Registers commands to that server so they appear instantly. Leave empty to register globally (up to 1 hour delay)."
     }
   ]
 }
