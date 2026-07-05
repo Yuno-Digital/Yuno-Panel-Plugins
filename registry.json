@@ -19,7 +19,8 @@
       "name": "Accent Theme",
       "version": "1.0.0",
       "description": "Recolour the panel's accent (brand mark, aurora) with your own colours.",
-      "author": "Yuno Digital"
+      "author": "Yuno Digital",
+      "requires": { "panel": { "min": "1.0.0-alpha7" } }
     }
   ]
 }

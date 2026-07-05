@@ -6,6 +6,9 @@
   "author": "Yuno Digital",
   "namespace": "Yuno\\Plugins\\AccentTheme",
   "provider": "Yuno\\Plugins\\AccentTheme\\AccentThemeServiceProvider",
+  "requires": {
+    "panel": { "min": "1.0.0-alpha7" }
+  },
   "info": [
     {
       "label": "How it works",

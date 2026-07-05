@@ -40,6 +40,25 @@ When enabled, the panel registers `namespace` as a PSR-4 root at the plugin's
 `src/` folder and boots `provider` — an ordinary Laravel service provider, so a
 plugin can add routes, views, migrations, config, etc.
 
+### Version requirements (optional)
+
+A plugin can bind itself to a **panel** version, a **Wings** (node daemon)
+version, or both. Add a `requires` block to `plugin.json` (and mirror it in the
+registry entry so the check runs before installing):
+
+```json
+"requires": {
+  "panel": { "min": "1.0.0-alpha7" },
+  "wings": { "min": "1.0.0-alpha4", "max": "2.0.0" }
+}
+```
+
+Each constraint is a `{ "min": …, "max": … }` object (either bound optional), or
+a bare string treated as a minimum (`"panel": ">=1.0.0"`). The panel compares
+`panel` against its own version and `wings` against the **lowest** node daemon
+version; incompatible plugins can't be installed and are flagged if already
+installed.
+
 ## Theming the panel
 
 A plugin can restyle the panel by pushing CSS into the page `<head>` from its
