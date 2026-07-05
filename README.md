@@ -40,6 +40,23 @@ When enabled, the panel registers `namespace` as a PSR-4 root at the plugin's
 `src/` folder and boots `provider` — an ordinary Laravel service provider, so a
 plugin can add routes, views, migrations, config, etc.
 
+## Theming the panel
+
+A plugin can restyle the panel by pushing CSS into the page `<head>` from its
+provider's `boot()`. It's rendered after the app stylesheet, so it overrides the
+defaults:
+
+```php
+use App\Support\Theme;
+
+Theme::head('<style>:root{--yuno-accent-1:#f59e0b;--yuno-accent-2:#ef4444;--yuno-accent-3:#ec4899}</style>');
+```
+
+The `--yuno-accent-1/2/3` variables drive the brand wordmark and the aurora
+background, so overriding them recolours the panel's signature look. For deeper
+changes, inject a full `<style>` or `<link rel="stylesheet">`. See the
+**accent-theme** plugin for a settings-driven example.
+
 ## Included plugins
 
 - **hello-world** — registers `GET /plugin/hello` returning a JSON greeting; the
@@ -47,3 +64,5 @@ plugin can add routes, views, migrations, config, etc.
 - **discord-bridge** — control servers from Discord with slash commands
   (`/servers`, `/status`, `/power`, `/say`) via HTTP interactions. See
   [discord-bridge/README.md](discord-bridge/README.md).
+- **accent-theme** — recolour the panel's accent (brand mark, aurora) from three
+  hex colours in the plugin settings; demonstrates the theming hook.

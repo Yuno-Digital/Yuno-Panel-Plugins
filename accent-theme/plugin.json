@@ -1,0 +1,39 @@
+{
+  "id": "accent-theme",
+  "name": "Accent Theme",
+  "version": "1.0.0",
+  "description": "Recolour the panel's accent (brand mark, buttons glow, aurora) with your own colours.",
+  "author": "Yuno Digital",
+  "namespace": "Yuno\\Plugins\\AccentTheme",
+  "provider": "Yuno\\Plugins\\AccentTheme\\AccentThemeServiceProvider",
+  "info": [
+    {
+      "label": "How it works",
+      "value": "Set three hex colours below, then reload the panel.",
+      "description": "The colours drive the --yuno-accent CSS variables the panel uses for its brand wordmark and the aurora background. Leave a field empty to keep the default."
+    }
+  ],
+  "settings": [
+    {
+      "key": "accent_1",
+      "label": "Accent 1 (start)",
+      "type": "text",
+      "default": "#6366f1",
+      "description": "Hex colour, e.g. #6366f1."
+    },
+    {
+      "key": "accent_2",
+      "label": "Accent 2 (middle)",
+      "type": "text",
+      "default": "#a855f7",
+      "description": "Hex colour, e.g. #a855f7."
+    },
+    {
+      "key": "accent_3",
+      "label": "Accent 3 (end)",
+      "type": "text",
+      "default": "#ec4899",
+      "description": "Hex colour, e.g. #ec4899."
+    }
+  ]
+}

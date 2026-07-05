@@ -13,6 +13,13 @@
       "version": "1.3.0",
       "description": "Control servers from Discord via slash commands (/servers, /status, /power, /say).",
       "author": "Yuno Digital"
+    },
+    {
+      "id": "accent-theme",
+      "name": "Accent Theme",
+      "version": "1.0.0",
+      "description": "Recolour the panel's accent (brand mark, aurora) with your own colours.",
+      "author": "Yuno Digital"
     }
   ]
 }
